@@ -1,0 +1,51 @@
+.icone{
+    margin-top: 5px;
+    color: black;
+}
+
+.link{
+    text-decoration: none;
+}
+
+.texto-icone{
+    text-align: center;
+    color: black;
+    font-size: 18px;
+}
+
+.tamanho-div{
+    height: 80px;
+    max-height: 90px;
+}
+
+.content-ouvidoria{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+
+.texto-explicacao{
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+.texto-explicacao-email{
+    font-size: 14px;
+    line-height: 1.2;
+    text-align: justify;
+    color: #FF1F1F;
+}
+
+.titulo-formulario{
+    text-align: center; 
+    color: #0c5460;
+    font-weight: bold;
+}
+
+.labelDescricao{
+    color: #2b2d2f;
+}
+
+.btn{
+    font-size: 18px;
+}
