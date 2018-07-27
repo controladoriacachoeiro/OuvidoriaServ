@@ -92,7 +92,7 @@
 
                         <div class="form-group row mb-0 justify-content-center">
                             <div>
-                                <button type="button" class="btn btn-outline-info" id="buttonVoltar">Voltar</button>
+                                <button type="button" class="btn btn-outline-info" id="buttonVoltar" hidden>Voltar</button>
                                 <button type="submit" class="btn btn-outline-info">Enviar</button>
                             </div>
                         </div>                       

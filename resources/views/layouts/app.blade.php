@@ -23,7 +23,7 @@
     <div id="app" class="content-ouvidoria">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
-                <a class="navbar-brand" href="http://leis.cachoeiro.es.gov.br:8081/portalcidadao/">
+                <a class="navbar-brand" href="http://leis.cachoeiro.es.gov.br:8081/portalcidadao/" id="imagemHeader">
                     <img src="brasao_cachoeiro.jpg" alt="Brasão da Prefeitura Municipal de Cachoeiro de Itapemirim" class="img-responsive img-center" width="20%" height="20%">
                     <div class="btn-group-vertical">
                         <span style="font-size: 16px">Ouvidoria Municipal de</span>
@@ -49,11 +49,11 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/solicitacao">Solicitação</a>
-                                <a class="dropdown-item" href="/reclamacao">Reclamação</a>
-                                <a class="dropdown-item" href="/elogio-sugestao">Elogio/Sugestão</a>
-                                <a class="dropdown-item" href="/denuncia">Denúncia</a>
-                                <a class="dropdown-item" href="/lai">LAI</a>
+                                <a class="dropdown-item" href="/solicitacao" id="solicitacaoId">Solicitação</a>
+                                <a class="dropdown-item" href="/reclamacao" id="reclamacaoId">Reclamação</a>
+                                <a class="dropdown-item" href="/elogio-sugestao" id="elogioSugestaoId">Elogio/Sugestão</a>
+                                <a class="dropdown-item" href="/denuncia" id="denunciaId">Denúncia</a>
+                                <a class="dropdown-item" href="/lai" id="laiId">LAI</a>
                             </div>
                         </li>
                     </ul>
@@ -108,6 +108,44 @@
         $seuCampoNumero.mask('0000000');
 
 
+    </script>
+
+    <script>
+        // Verificação se o dispositivo que está acessando o site está vindo através do aplicativo da prefeitura
+
+        var url = location.search.slice(1);
+        
+        var urlSemParametro = window.location.origin;
+        var urlPagina = window.location.pathname;
+        var novaUrl = urlSemParametro + urlPagina;
+        
+
+        var partes = url.split('?');
+        var data = {};
+
+        partes.forEach(function (parte) {
+            var urlAux = parte.split('=');
+            var parametro = urlAux[0];
+            var valor = urlAux[1];
+            data[parametro] = valor;
+        });
+
+
+        if(data.mobile != "true"){
+            $("#buttonVoltar").removeAttr("hidden");
+        } else {
+            $('#solicitacaoId').attr('href', $('#solicitacaoId').attr('href') + '?mobile=true');
+            $('#reclamacaoId').attr('href', $('#reclamacaoId').attr('href') + '?mobile=true');
+            $('#elogioSugestaoId').attr('href', $('#elogioSugestaoId').attr('href') + '?mobile=true');
+            $('#denunciaId').attr('href', $('#denunciaId').attr('href') + '?mobile=true');
+            $('#laiId').attr('href', $('#laiId').attr('href') + '?mobile=true');
+            $('#imagemHeader').attr('href', '#');
+        }
+
+
+        history.pushState('', '', novaUrl);
+
+        // Fim da Verificação
     </script>
     
     @yield('scriptAdd')

@@ -179,7 +179,7 @@
                                     <label for="fileLabel" class="col-md-4 col-form-label text-md-right labelDescricao"><b>Anexo</b></label>
 
                                     <div class="col-md-6">
-                                        <input type="file" name="file[]" class="{{ $errors->has('file') ? 'is-invalid' : '' }}" style="padding-bottom: 10px">
+                                        <input type="file" name="file[]" class="{{ $errors->has('file') ? 'is-invalid' : '' }} inputFile" style="padding-bottom: 10px">
                                         <small class="text-danger">{{ $errors->first('file') }}</small>
                                         <div class="help-block with-errors alert-danger" style="font-size: 16px; text-align: center; margin-top: 5px; border-radius: 5px"></div>
                                     </div>
@@ -205,7 +205,7 @@
 
                         <div class="form-group row mb-0 justify-content-center">
                             <div>
-                                <button type="button" class="btn btn-outline-info" id="buttonVoltar">Voltar</button>
+                                <button type="button" class="btn btn-outline-info" id="buttonVoltar" hidden>Voltar</button>
                                 <button type="submit" class="btn btn-outline-info">Enviar</button>
                             </div>
                         </div>      
