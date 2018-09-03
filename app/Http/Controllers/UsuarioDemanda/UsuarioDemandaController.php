@@ -17,7 +17,7 @@ class UsuarioDemandaController extends Controller
 
         $dadosDb = $dadosDb->get();       
 
-        $arrayDataFiltro =[];        
+        $arrayDataFiltro = [];        
         
         foreach ($dadosDb as $valor) {
             array_push($arrayDataFiltro, $valor);

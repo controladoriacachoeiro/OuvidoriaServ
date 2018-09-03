@@ -69,6 +69,18 @@ Route::post('/listarUsuarioDemanda', 'UsuarioDemanda\UsuarioDemandaController@Li
 
 Route::post('/loginApp', 'Usuario\UsuarioController@Login');
 
+Route::post('/deslogarApp', 'Usuario\UsuarioController@Deslogar');
+
 Route::post('/inserirUsuario', 'Usuario\UsuarioController@InserirUsuario');
 
 Route::post('/inserirDemanda', 'Demanda\DemandaController@InserirDemanda');
+
+Route::post('/inserirDenunciaAnonima', 'Demanda\DemandaController@InserirDenunciaAnonima');
+
+Route::post('/colaborarPositivamente', 'Demanda\DemandaController@ColaborarPositivamente');
+
+Route::post('/colaborarNegativamente', 'Demanda\DemandaController@ColaborarNegativamente');
+
+Route::post('/listarDemanda', 'Demanda\DemandaController@ListarDemanda');
+
+Route::post('/consultarDenunciaAnonima', 'Demanda\DemandaController@ConsultarDenunciaAnonima');

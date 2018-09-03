@@ -14,7 +14,7 @@ class StatusController extends Controller
         
         $dadosDb = $dadosDb->get();       
 
-        $arrayDataFiltro =[];        
+        $arrayDataFiltro = [];        
         
         foreach ($dadosDb as $valor) {
             array_push($arrayDataFiltro, $valor);
@@ -22,8 +22,6 @@ class StatusController extends Controller
 
         $arrayDataFiltro = json_encode($arrayDataFiltro);
         $dadosDb = $arrayDataFiltro;
-
-        // dd($dadosDb);
 
         return $dadosDb;
     }

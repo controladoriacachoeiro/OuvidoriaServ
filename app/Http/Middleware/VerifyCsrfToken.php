@@ -18,5 +18,11 @@ class VerifyCsrfToken extends Middleware
         '/inserirUsuario',
         '/listarUsuarioDemanda',
         '/inserirDemanda',
+        '/colaborarPositivamente',
+        '/colaborarNegativamente',
+        '/listarDemanda',
+        '/deslogarApp',
+        '/consultarDenunciaAnonima',
+        '/inserirDenunciaAnonima',
     ];
 }

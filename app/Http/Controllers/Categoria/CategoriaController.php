@@ -16,7 +16,7 @@ class CategoriaController extends Controller
 
         $dadosDb = $dadosDb->get();       
 
-        $arrayDataFiltro =[];        
+        $arrayDataFiltro = [];        
         
         foreach ($dadosDb as $valor) {
             array_push($arrayDataFiltro, $valor);
@@ -24,8 +24,6 @@ class CategoriaController extends Controller
 
         $arrayDataFiltro = json_encode($arrayDataFiltro);
         $dadosDb = $arrayDataFiltro;
-
-        // dd($dadosDb);
 
         return $dadosDb;
     }
