@@ -84,3 +84,5 @@ Route::post('/colaborarNegativamente', 'Demanda\DemandaController@ColaborarNegat
 Route::post('/listarDemanda', 'Demanda\DemandaController@ListarDemanda');
 
 Route::post('/consultarDenunciaAnonima', 'Demanda\DemandaController@ConsultarDenunciaAnonima');
+
+Route::get('/enviarNotificacao/{codUsuario}/{codDemanda}', ['as'=> 'EnviarNotificacao', 'uses'=>'Demanda\DemandaController@EnviarNotificacao']);

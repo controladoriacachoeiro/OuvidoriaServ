@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\DemandaModel;
 use App\Models\UsuarioDemandaModel;
+use App\Models\UsuarioModel;
+use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Client;
+
 use Storage;
 
 class DemandaController extends Controller
@@ -208,6 +212,7 @@ class DemandaController extends Controller
         return json_encode("OK");
     }
 
+    // POST
     public function ColaborarNegativamente(Request $request){
         $colaboracao = "Não Existe";
 
@@ -229,6 +234,63 @@ class DemandaController extends Controller
         $dadosDb3->insert(['codUsuario' => $request->codUsuario, 'codDemanda' => $request->codDemanda, 'colaboracao' => $colaboracao, 'created_at' => date('Y-m-d H:i:s')]);
 
         return json_encode("OK");
+    }
+
+    // Função para enviar Push Notification para um smartphone Android através de uma url
+    // GET
+    public function EnviarNotificacao($codUsuario, $codDemanda){
+        
+        $dadosDb = DemandaModel::orderBy('codDemanda');
+        $dadosDb->select('codDemanda');
+        $dadosDb->where('codDemanda', '=', $codDemanda);
+        $dadosDb = $dadosDb->first();
+
+        $dadosDb2 = UsuarioModel::orderBy('codUsuario');
+        $dadosDb2->select('nome', 'tokenDispositivo');
+        $dadosDb2->where('codUsuario', '=', $codUsuario);
+        $dadosDb2 = $dadosDb2->first();
+        
+        $numeroProtocolo = $dadosDb->codDemanda;
+        $nomeUsuario = $dadosDb2->nome;
+
+        $titulo = "Alteração no status de sua demanda!";
+        $corpoMsg = $nomeUsuario . " houve uma alteração no status de uma demanda que você criou, cujo número de protocolo é: " . $numeroProtocolo;
+        $tokenDispositivo = $dadosDb2->tokenDispositivo;
+ 
+        
+        $fcmUrl = 'https://fcm.googleapis.com/fcm/send';
+        $token = $tokenDispositivo;
+
+        $notification3 = [
+            'title' => $titulo,
+            'body' => $corpoMsg,
+            'sound' => true,
+        ];
+        
+        $extraNotificationData = ["message" => $notification3,"moredata" =>'dd'];
+
+        $fcmNotification = [
+            //'registration_ids' => $tokenList, //multple token array
+            'to'        => $token, //single token
+            'notification' => $notification3,
+            'data' => $extraNotificationData
+        ];
+
+        $headers = [
+            'Authorization: key=AAAApnhqUJE:APA91bFkKSfPW5idrHAKg2G2egDnZoPUbZsG889rxc1brIirsaKf9rTNyFN5Hx0uGLbvqNEQQvS0btqVITkU3yS3cljJn3leroEC1VFnZXpeshm73KrfjszKgGyzRaMEb10TCtTg0pfCJqYTAtXmUEczSZgvR9N1AQ',
+            'Content-Type: application/json'
+        ];
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL,$fcmUrl);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fcmNotification));
+        $result = curl_exec($ch);
+        curl_close($ch);
+        
     }
 
 }
