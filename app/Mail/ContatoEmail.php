@@ -82,6 +82,9 @@ class ContatoEmail extends Mailable
         } else if($this->dados->tipoFormulario == "LAI"){
 
             return $this->from($this->dados->email, "Formulário do Site")->subject("Formulário de " . $this->dados->tipoFormulario)->view('email.emailLAI');
+        } else if($this->dados->tipoFormulario == "Recurso"){
+
+            return $this->from($this->dados->email, "Formulário do Site")->subject("Formulário de " . $this->dados->tipoFormulario)->view('email.emailRecurso');
         }
         
     }

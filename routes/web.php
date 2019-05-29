@@ -39,6 +39,10 @@ Route::get('/lai', function () {
     return view('lai');
 });
 
+Route::get('/recurso', function () {
+    return view('recurso');
+});
+
 //Formulários
 
 Route::post('/formularioSolicitacao', 'FormularioController@formularioSolicitacao');
@@ -50,6 +54,8 @@ Route::post('/formularioElogioSugestao', 'FormularioController@formularioElogioS
 Route::post('/formularioDenuncia', 'FormularioController@formularioDenuncia');
 
 Route::post('/formularioLAI', 'FormularioController@formularioLAI');
+
+Route::post('/formularioRecurso', 'FormularioController@formularioRecurso');
 
 // Aplicativo
 

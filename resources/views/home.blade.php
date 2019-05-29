@@ -20,7 +20,7 @@
                 <div class="col-md-2">
                     <a href="/solicitacao" class="link" style="text-decoration: none">
                         <div class="card mb-2 box-shadow align-items-center bg-light border border-primary div-hover">
-                            <i class="material-icons icone" style="font-size: 80px">mic</i>
+                            <i class="material-icons icone" style="font-size: 80px; margin-bottom: -10px; margin-top: 20px">mic</i>
                             <div class="card-body tamanho-div">
                                 <p class="card-text texto-icone">Solicitação</p>
                             </div>
@@ -30,7 +30,7 @@
                 <div class="col-md-2">
                     <a href="/reclamacao" class="link" style="text-decoration: none">
                         <div class="card mb-2 box-shadow align-items-center bg-light border border-primary div-hover">
-                            <i class="material-icons icone" style="font-size: 80px">thumb_down</i>
+                            <i class="material-icons icone" style="font-size: 80px; margin-bottom: -10px; margin-top: 20px">thumb_down</i>
                             <div class="card-body tamanho-div">
                                 <p class="card-text texto-icone">Reclamação</p>
                             </div>
@@ -41,7 +41,7 @@
                 <div class="col-md-2">
                     <a href="/elogio-sugestao" class="link" style="text-decoration: none">
                         <div class="card mb-2 box-shadow align-items-center bg-light border border-primary div-hover">
-                            <i class="material-icons icone" style="font-size: 80px">thumb_up</i>
+                            <i class="material-icons icone" style="font-size: 80px; margin-bottom: -10px; margin-top: 20px">thumb_up</i>
                             <div class="card-body tamanho-div">
                                 <p class="card-text texto-icone">Elogio/Sugestão</p>
                             </div>
@@ -54,7 +54,7 @@
                 <div class="col-md-2">
                     <a href="/denuncia" class="link" style="text-decoration: none">
                         <div class="card mb-2 box-shadow align-items-center bg-light border border-primary div-hover">
-                            <i class="material-icons icone" style="font-size: 80px">account_circle</i>
+                            <i class="material-icons icone" style="font-size: 80px; margin-bottom: -10px; margin-top: 20px">account_circle</i>
                             <div class="card-body tamanho-div">
                                 <p class="card-text texto-icone">Denúncia</p>
                             </div>
@@ -65,10 +65,22 @@
                 <div class="col-md-2">
                     <a href="/lai" class="link" style="text-decoration: none">
                         <div class="card mb-2 box-shadow align-items-center bg-light border border-primary div-hover">
-                            <i class="material-icons icone" style="font-size: 80px">info_outline</i>
+                            <i class="material-icons icone" style="font-size: 80px; margin-bottom: -10px; margin-top: 20px">info_outline</i>
                             <!-- <img src="../storage/app/acesso_informacao.png" alt="" width="90px" height="90px"> -->
                             <div class="card-body tamanho-div" style="max-height: 110px">
                                 <p class="card-text texto-icone">Lei de Acesso à Informação</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-2">
+                    <a href="/recurso" class="link" style="text-decoration: none">
+                        <div class="card mb-2 box-shadow align-items-center bg-light border border-primary div-hover">
+                            {{-- <i class="material-icons icone" style="font-size: 80px">list_alt</i> --}}
+                            <i class="material-icons icone" style="font-size: 80px; margin-bottom: -10px; margin-top: 20px">insert_comment</i>
+                            <div class="card-body tamanho-div" style="max-height: 110px">
+                                <p class="card-text texto-icone">Recurso</p>
                             </div>
                         </div>
                     </a>
@@ -100,6 +112,8 @@
                 $(this).find(".icone").css("color", "#C11520");
             } else if($(this).find(".icone").text() == "info_outline"){
                 $(this).find(".icone").css("color", "#DE8D0B");
+            } else if($(this).find(".icone").text() == "insert_comment"){
+                $(this).find(".icone").css("color", "#702C91");
             }
 
         }, function(){

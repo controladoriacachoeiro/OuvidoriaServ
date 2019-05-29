@@ -23,7 +23,7 @@
     <div id="app" class="content-ouvidoria">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
-                <a class="navbar-brand" href="http://leis.cachoeiro.es.gov.br:8081/portalcidadao/" id="imagemHeader">
+                <a class="navbar-brand" href="https://leis.cachoeiro.es.gov.br:8081/portalcidadao/" id="imagemHeader">
                     <img src="brasao_cachoeiro.jpg" alt="Brasão da Prefeitura Municipal de Cachoeiro de Itapemirim" class="img-responsive img-center" width="20%" height="20%">
                     <div class="btn-group-vertical">
                         <span style="font-size: 16px">Ouvidoria Municipal de</span>
@@ -54,6 +54,7 @@
                                 <a class="dropdown-item" href="/elogio-sugestao" id="elogioSugestaoId">Elogio/Sugestão</a>
                                 <a class="dropdown-item" href="/denuncia" id="denunciaId">Denúncia</a>
                                 <a class="dropdown-item" href="/lai" id="laiId">LAI</a>
+                                <a class="dropdown-item" href="/recurso" id="recursoId">Recurso</a>
                             </div>
                         </li>
                     </ul>

@@ -157,6 +157,29 @@ class FormularioController extends Controller
         return redirect('/home')->with('message', 'Em até 48h você receberá um e-mail com o número de protocolo deste Registro.');
     }
 
+    public function formularioRecurso(Request $request){
+
+        $regras = [
+            'nome' => 'required',
+            'email' => 'required',
+            'numProtocolo' => 'required',
+            'descricao' => 'required',
+        ];
+
+        $mensagens = [
+            'nome.required' => 'Nome é obrigatório',
+            'email.required' => 'E-mail é obrigatório',
+            'numProtocolo.required' => 'O número de Protocolo é obrigatório',
+            'descricao.required' => 'Descrição é obrigatória',
+        ];
+
+        $request->validate($regras, $mensagens);
+       
+        Mail::to('ouvidoria@cachoeiro.es.gov.br')->send(new ContatoEmail($request));
+
+        return redirect('/home')->with('message', 'Seu recurso será analisado e respondido em até 30 dias.');
+    }
+
     public function ajeitaData($data){
 
         $elemento = explode("-", $data);
